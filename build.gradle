@@ -20,9 +20,22 @@ repositories {
     jcenter()
 }
 
+configurations {
+    // configuration that holds jars to include in the jar
+    extraLibs
+}
+
+jar {
+	from {
+		configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}
+
 dependencies {
-	// TODO: update this to a version that includes the 
 	implementation 'org.mitre.synthea:synthea:3.0.1'
+	extraLibs 'org.postgresql:postgresql:42.2.0'
+
+	configurations.api.extendsFrom(configurations.extraLibs)
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'

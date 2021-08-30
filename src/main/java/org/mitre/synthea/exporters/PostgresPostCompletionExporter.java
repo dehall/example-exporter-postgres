@@ -6,9 +6,9 @@ import org.mitre.synthea.export.PostCompletionExporter;
 
 // note that it is possible for a class to implement both interfaces,
 // but when loaded in synthea there will be 2 separate instances
-public class SamplePostCompletionExporter implements PostCompletionExporter {
+public class PostgresPostCompletionExporter implements PostCompletionExporter {
 
-  public SamplePostCompletionExporter() {
+  public PostgresPostCompletionExporter() {
   }
 
   @Override
