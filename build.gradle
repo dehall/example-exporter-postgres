@@ -9,15 +9,17 @@
 apply plugin: 'java'
 apply plugin: 'java-library'
 
-// use 1.8 compatibility to ensure we still work with base synthea
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+// use 11 compatibility to ensure we still work with base synthea
+sourceCompatibility = '11'
+targetCompatibility = '11'
 
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    mavenLocal()
-    jcenter()
+  mavenCentral()
+  maven {
+    url "https://oss.sonatype.org/content/repositories/snapshots"
+  }
 }
 
 configurations {
@@ -32,7 +34,7 @@ jar {
 }
 
 dependencies {
-	implementation 'org.mitre.synthea:synthea:3.0.1'
+	implementation 'org.mitre.synthea:synthea:3.2.2-SNAPSHOT'
 	extraLibs 'org.postgresql:postgresql:42.2.0'
 
 	configurations.api.extendsFrom(configurations.extraLibs)
