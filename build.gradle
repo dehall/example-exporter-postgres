@@ -35,7 +35,7 @@ jar {
 
 dependencies {
 	implementation 'org.mitre.synthea:synthea:3.2.2-SNAPSHOT'
-	extraLibs 'org.postgresql:postgresql:42.2.0'
+	extraLibs 'org.postgresql:postgresql:42.7.0'
 
 	configurations.api.extendsFrom(configurations.extraLibs)
 
